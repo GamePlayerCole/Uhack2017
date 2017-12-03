@@ -32,7 +32,7 @@ function setHtmlAttributes(name, href, addy, phone, imgUrl, gmapLink) {
 function getRestaurantsList(lat,longitude){
 
 	var restaurantRequest = new XMLHttpRequest();
-	restaurantRequest.open("GET", "http://54.148.9.45:3000/yelp?latitude=" + lat+"&longitude="+longitude, true);
+	restaurantRequest.open("GET", "https://54.148.9.45:3000/yelp?latitude=" + lat+"&longitude="+longitude, true);
 
 	restaurantRequest.onload = function(e){
 		console.log("Sending request to server");
