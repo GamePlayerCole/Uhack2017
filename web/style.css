@@ -86,6 +86,10 @@ body {
 	max-width: 60%;
 }
 
+#distanceValue {
+	text-align: center;
+}
+
 .slider {
     -webkit-appearance: none;
     height: 10px;

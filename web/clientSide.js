@@ -34,9 +34,9 @@ function setHtmlAttributes(name, href, addy, phone, imgUrl, gmapLink) {
 }
 
 function getRestaurantsList(lat,longitude){
-
+	var radius = document.getElementById("distanceValue").value;
 	var restaurantRequest = new XMLHttpRequest();
-	restaurantRequest.open("GET", "https://60862f8c.ngrok.io/yelp?latitude=" + lat+"&longitude="+longitude, true);
+	restaurantRequest.open("GET", "https://60862f8c.ngrok.io/yelp?latitude="+lat+"&longitude="+longitude+"&radius="+radius, true);
 
 	restaurantRequest.onload = function(e){
 		console.log("Sending request to server");
