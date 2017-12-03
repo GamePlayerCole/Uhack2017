@@ -1,10 +1,9 @@
 $(document).ready(function(){
-	$("#result").hide();
+	$("#results").hide();
 	//console.log(restaurantsList)
 	$("#new").on("click", function(){
 		if (typeof restaurantsList === 'undefined' || restaurantsList === null || restaurantsList.length == 0) {
 			getLocation();
-			$("#result").show();
 		} else {
 			getRandomRestaurant(lat, long);
 		}
@@ -31,6 +30,7 @@ function setHtmlAttributes(name, href, addy, phone, imgUrl, gmapLink) {
 	$("#pic").attr("src", imgUrl);
 	$("#gmaps-link").html("Open in Google Maps");
 	$("#gmaps-link").attr("href", gmapLink);
+	$("#results").show();
 }
 
 function getRestaurantsList(lat,longitude){

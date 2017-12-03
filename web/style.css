@@ -49,11 +49,15 @@ body {
 	border-color: #FFF;
 	min-height: 30px;
 	height: auto;
-	display: flex;
 	flex-direction: column;
 	flex-wrap: nowrap;
 	align-items: center;
 	justify-content: space-between;
+}
+
+.flex {
+
+	display: flex;
 }
 
 .restaurant {
@@ -81,3 +85,4 @@ body {
 #pic {
 	max-width: 60%;
 }
+
