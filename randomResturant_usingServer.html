@@ -1,0 +1,78 @@
+<DOCTYPE html>
+<html>
+	<head>
+		<title> Random restaurant </title>
+	</head>
+
+	<body>
+
+		<script>
+
+			//REMOVE IN FINAL
+			var restaurant;
+			function textInit(){
+					document.write("Random restaurant");
+					document.write("\n Version 0.5");
+
+				}
+			textInit();
+
+			function getRandomInt(min, max) {
+  				min = Math.ceil(min);
+  				max = Math.floor(max);
+ 				 return Math.floor(Math.random() * (max - min)) + min; 
+			}
+
+
+	    	function getRandomrestaurant(lat,longitude){
+	    		document.write("Working some magic...");
+
+	    		var restaurantRequest = new XMLHttpRequest();
+	    		restaurantRequest.open("GET", "http://54.148.9.45:3000/yelp?latitude=" + lat+"&longitude="+longitude,true);
+	    		
+	    		restaurantRequest.onload = function(e){
+	    			//console.log(restaurantRequest.responseType);
+		  			console.log(restaurantRequest.responseText);
+		  			var restaurantsList = JSON.parse(restaurantRequest.responseText);
+
+		  			console.log("Number of Results: " + restaurantsList.restaurants.length);
+
+		  			var randomNum = getRandomInt(1,restaurantsList.restaurants.length);
+		  			console.log("Random Result: " + randomNum);
+
+		  			var randomRestaurant = restaurantsList.restaurants[randomNum];
+		  			restaurant = randomRestaurant;
+
+		  			console.log(randomRestaurant.name);
+		  			console.log(randomRestaurant.price);
+		  			console.log(randomRestaurant.location.address1);
+
+		  			document.close();
+					document.write(randomRestaurant.name);
+		  		};
+
+				restaurantRequest.send();
+
+	    	}
+
+			var x = document.getElementById("demo");
+			function getLocation() {
+			    if (navigator.geolocation) {
+			        navigator.geolocation.getCurrentPosition(showPosition);
+			    } else {
+			        x.innerHTML = "Geolocation is not supported by this browser.";
+			    }
+			}
+			function showPosition(position) {
+				console.log(position.coords);
+	    		getRandomrestaurant(position.coords.latitude,position.coords.longitude);
+			}
+
+
+			getLocation();
+
+
+
+		</script>
+	</body>
+</html>
