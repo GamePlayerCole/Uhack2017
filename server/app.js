@@ -27,7 +27,7 @@ app.get('/', (req, res) => {
 
 
 app.get('/yelp', function(req, res) {
-	axios.post('https://api.yelp.com/oauth2/token?grant_type=client_credentials&client_id=U8CFldVZKL6PJ-f1_VYIGQ&client_secret=U1qTT2ZQ5qqVP2I3jVd2OswlDztlSHW3jwSiZQuPe7uWrrmnj2HCxF18G1QYYlDl')
+	axios.post('https://api.yelp.com/oauth2/token?grant_type=client_credentials&client_id={CLIENT_ID}&client_secret={CLIENT_SECRET}')
 	  .then(response => {
 	  	var token = response['data']['access_token'];
 		var lat = req.param('latitude');
