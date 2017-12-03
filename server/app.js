@@ -32,9 +32,10 @@ app.get('/yelp', function(req, res) {
 	  	var token = response['data']['access_token'];
 		var lat = req.param('latitude');
 		var long = req.param('longitude');
+		var radius = Math.floor(milesToMeters(req.param('radius')));
 
 		const AuthStr = 'Bearer ' + token; 
-		axios.get('https://api.yelp.com/v3/businesses/search?latitude=' + lat+'&longitude='+long, { headers: { Authorization: AuthStr } })
+		axios.get('https://api.yelp.com/v3/businesses/search?latitude=' + lat + '&longitude=' + long + '&radius=' + radius, { headers: { Authorization: AuthStr } })
 		 .then(restaurantsList => {
 		 	console.log(restaurantsList.data);
 		     return res.json({restaurants: restaurantsList.data.businesses});
@@ -47,6 +48,8 @@ app.get('/yelp', function(req, res) {
 	    console.log(error);
 	  });
 });
+
+function milesToMeters(miles) { return miles * 1609.34 };
 
 app.listen(3000, () => console.log('Test application on port 3000'));
 
