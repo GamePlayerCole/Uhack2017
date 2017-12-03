@@ -4,18 +4,19 @@ const bodyParser = require('body-parser');
 const axios = require('axios');
 const cors = require('cors');
 var fs = require('fs');
-var https = require('https');
+// var https = require('https');
 
 const app = express();
 
 app.use(logger('dev'));
 app.use(cors());
 
-var options = { 
-    key: fs.readFileSync('./keys/self.key'), 
-    cert: fs.readFileSync('./keys/self.crt'), 
-    //ca: fs.readFileSync('/etc/ssl/yelpApi/ca-crt.pem')
-}; 
+/*
+var options = {
+	key: fs.readFileSync("./keys/mockserver.key"),
+	cert: fs.readFileSync("./keys/mockserver.crt")
+}
+*/
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false}));
@@ -47,8 +48,8 @@ app.get('/yelp', function(req, res) {
 	  });
 });
 
-//app.listen(3000, () => console.log('Test application on port 3000'));
-https.createServer(options, app).listen(3000);
+app.listen(3000, () => console.log('Test application on port 3000'));
+//https.createServer(options, app).listen(3000);
 
 
 // Todo Radius, 
