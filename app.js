@@ -25,7 +25,8 @@ app.get('/yelp', function(req, res) {
 		const AuthStr = 'Bearer ' + token; 
 		axios.get('https://api.yelp.com/v3/businesses/search?latitude=' + lat+'&longitude='+long, { headers: { Authorization: AuthStr } })
 		 .then(restaurantsList => {
-		     return res.json({resturants: restaurantsList.data.businesses});
+		 	console.log(restaurantsList.data);
+		     return res.json({restaurants: restaurantsList.data.businesses});
 		  })
 		 .catch((error) => {
 		     console.log('error ' + error);
