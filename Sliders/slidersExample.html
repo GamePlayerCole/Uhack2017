@@ -1,0 +1,24 @@
+<!--
+Created by Cole Hemp (GamePlayerCole)
+Sliders.HTML
+Contains divs with working sliders for Distance and Ratings to be ported into the main document
+-->
+
+<!DOCTYPE HTML>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="sliders.css">
+</head>
+<body>
+<h1>Distance Slider</h1>
+<div id="distanceSliderContainer">
+  <h4>Max Travel Distance:</h4>
+  <input type="range" min="1" max="25" value="5" class="slider" id="distanceSlider">
+  &nbsp &nbsp;
+  <input type="text" name="maxDistance" id="distanceValue" value="5" maxlength="2" size="1">
+   &nbsp; Miles
+</div>
+<!--Javascript must be loaded at the end. Otherwise, console will throw an error.-->
+<script type="text/javascript" src=sliders.js></script>
+</body>
+</html>
