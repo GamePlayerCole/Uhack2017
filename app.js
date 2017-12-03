@@ -11,13 +11,11 @@ const app = express();
 app.use(logger('dev'));
 app.use(cors());
 
-var key = fs.readFileSync('/etc/ssl/yelpApi/node.key');
-var cert = fs.readFileSync( '/etc/ssl/yelpApi/node.crt' );
-
-var options = {
-  key: key,
-  cert: cert,
-};
+var options = { 
+    key: fs.readFileSync('./keys/self.key'), 
+    cert: fs.readFileSync('./keys/self.crt'), 
+    //ca: fs.readFileSync('/etc/ssl/yelpApi/ca-crt.pem'), 
+}; 
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false}));
