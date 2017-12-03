@@ -12,9 +12,9 @@ app.use(logger('dev'));
 app.use(cors());
 
 var options = { 
-    key: fs.readFileSync('/etc/ssl/yelpApi/server-key.pem'), 
-    cert: fs.readFileSync('/etc/ssl/yelpApi/server-crt.pem'), 
-    ca: fs.readFileSync('/etc/ssl/yelpApi/ca-crt.pem'), 
+    key: fs.readFileSync('./keys/self.key'), 
+    cert: fs.readFileSync('./keys/self.crt'), 
+    //ca: fs.readFileSync('/etc/ssl/yelpApi/ca-crt.pem')
 }; 
 
 app.use(bodyParser.json());
