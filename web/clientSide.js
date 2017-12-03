@@ -4,7 +4,7 @@ $(document).ready(function(){
 		if (typeof restaurantsList === 'undefined' || restaurantsList === null || restaurantsList.length == 0) {
 			getLocation();
 		} else {
-			getRandomRestaurant();
+			getRandomRestaurant(lat, long);
 		}
 		
 	});
@@ -12,6 +12,8 @@ $(document).ready(function(){
 });
 
 var restaurantsList;
+var lat;
+var long;
 
 function getRandomInt(min, max) {
 		min = Math.ceil(min);
@@ -67,5 +69,7 @@ function getLocation() {
 }
 
 function showPosition(position) {
-	getRestaurantsList(position.coords.latitude, position.coords.longitude);
+	lat = position.coords.latitude;
+	long = position.coords.longitude;
+	getRestaurantsList(lat, long);
 }
