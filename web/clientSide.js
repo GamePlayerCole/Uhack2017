@@ -5,7 +5,11 @@ $(document).ready(function(){
 		if (typeof restaurantsList === 'undefined' || restaurantsList === null || restaurantsList.length == 0) {
 			getLocation();
 		} else {
-			getRandomRestaurant(lat, long);
+			if (radius != document.getElementById("distanceValue").value) {
+				getRestaurantsList(lat, long);
+			} else {
+				getRandomRestaurant(lat, long);
+			}
 		}
 
 	});
@@ -15,6 +19,7 @@ $(document).ready(function(){
 var restaurantsList;
 var lat;
 var long;
+var radius;
 
 function getRandomInt(min, max) {
 		min = Math.ceil(min);
@@ -34,7 +39,7 @@ function setHtmlAttributes(name, href, addy, phone, imgUrl, gmapLink) {
 }
 
 function getRestaurantsList(lat,longitude){
-	var radius = document.getElementById("distanceValue").value;
+	radius = document.getElementById("distanceValue").value;
 	var restaurantRequest = new XMLHttpRequest();
 	restaurantRequest.open("GET", "https://60862f8c.ngrok.io/yelp?latitude="+lat+"&longitude="+longitude+"&radius="+radius, true);
 
