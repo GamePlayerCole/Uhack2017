@@ -1,12 +1,14 @@
 $(document).ready(function(){
-	console.log(restaurantsList);
+	$("#result").hide();
+	//console.log(restaurantsList)
 	$("#new").on("click", function(){
 		if (typeof restaurantsList === 'undefined' || restaurantsList === null || restaurantsList.length == 0) {
 			getLocation();
+			$("#result").show();
 		} else {
 			getRandomRestaurant(lat, long);
 		}
-		
+
 	});
 
 });
@@ -18,7 +20,7 @@ var long;
 function getRandomInt(min, max) {
 		min = Math.ceil(min);
 		max = Math.floor(max);
-		return Math.floor(Math.random() * (max - min)) + min; 
+		return Math.floor(Math.random() * (max - min)) + min;
 }
 
 function setHtmlAttributes(name, href, addy, phone, imgUrl, gmapLink) {
@@ -27,14 +29,14 @@ function setHtmlAttributes(name, href, addy, phone, imgUrl, gmapLink) {
 	$("#address").html(addy.join(", "));
 	$("#phone-number").html(phone);
 	$("#pic").attr("src", imgUrl);
-	$("#gmaps-link").html("Google Maps Link");		
+	$("#gmaps-link").html("Open in Google Maps");
 	$("#gmaps-link").attr("href", gmapLink);
 }
 
 function getRestaurantsList(lat,longitude){
 
 	var restaurantRequest = new XMLHttpRequest();
-	restaurantRequest.open("GET", "https://0bbc761e.ngrok.io/yelp?latitude=" + lat+"&longitude="+longitude, true);
+	restaurantRequest.open("GET", "https://60862f8c.ngrok.io/yelp?latitude=" + lat+"&longitude="+longitude, true);
 
 	restaurantRequest.onload = function(e){
 		console.log("Sending request to server");
