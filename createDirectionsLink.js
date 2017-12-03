@@ -2,15 +2,23 @@
 //createDirectionsLink.js
 //Takes the address and generates a google maps direction link with the origin being the user's current location and the address pulled.
 
-function createDirectionsLink(address) {
+
+//Inputs:
+//originLongitudeLatitude - An array containing the Longitude and Latitude of the user's location.
+//destinationAddress - A string/string array containing the address of the destination.
+function createDirectionsLink(orginLatitudeLongitude, destinationAddress) {
+  //Converts array of inputted Longitude and Latitude of the user to a format useable by Google Maps URL api
+  var originConverted = orginLatitudeLongitude[0] + "," + orginLatitudeLongitude[1];
+
+
   //Checks if address is a string or an array. If it's a string it'll convert the address into an array
-  if (Array.isArray(address) != true)
+  if (Array.isArray(destinationAddress) != true)
   {
-    var destination = address.split(" ");
+    var destination = destinationAddress.split(" ");
   }
   else
   {
-    var destination = address;
+    var destination = destinationAddress;
   }
 
 
@@ -29,5 +37,5 @@ function createDirectionsLink(address) {
 
 
   //Generates the link for Google Maps Directions for current location to desired address
-  return "https://www.google.com/maps/dir/Current+Location/" + destinationConverted;
+  return "https://www.google.com/maps/dir/" + originConverted + "/" + destinationConverted;
 }
