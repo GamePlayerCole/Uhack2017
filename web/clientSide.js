@@ -41,7 +41,7 @@ function setHtmlAttributes(name, href, addy, phone, imgUrl, gmapLink) {
 function getRestaurantsList(lat,longitude){
 	radius = document.getElementById("distanceValue").value;
 	var restaurantRequest = new XMLHttpRequest();
-	restaurantRequest.open("GET", "https://60862f8c.ngrok.io/yelp?latitude="+lat+"&longitude="+longitude+"&radius="+radius, true);
+	restaurantRequest.open("GET", "https://b540f69c.ngrok.io/yelp?latitude="+lat+"&longitude="+longitude+"&radius="+radius, true);
 
 	restaurantRequest.onload = function(e){
 		console.log("Sending request to server");
