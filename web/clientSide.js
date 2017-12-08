@@ -27,7 +27,7 @@ function getRandomInt(min, max) {
 		return Math.floor(Math.random() * (max - min)) + min;
 }
 
-function setHtmlAttributes(name, href, addy, phone, imgUrl, gmapLink) {
+function setHtmlAttributes(name, href, addy, phone, imgUrl, gmapLink, rating) {
 	$("#name").html(name);
 	$("#name").attr("href", href);
 	$("#address").html(addy.join(", "));
@@ -35,6 +35,7 @@ function setHtmlAttributes(name, href, addy, phone, imgUrl, gmapLink) {
 	$("#pic").attr("src", imgUrl);
 	$("#gmaps-link").html("Open in Google Maps");
 	$("#gmaps-link").attr("href", gmapLink);
+	$("#rating").html(rating + "/5 Rating");
 	$("#results").show();
 }
 
@@ -62,9 +63,10 @@ function getRandomRestaurant(lat, long) {
 	var addy = randomRestaurant.location.display_address;
 	var phone = randomRestaurant.display_phone;
 	var imgUrl = randomRestaurant.image_url;
+	var rating = randomRestaurant.rating;
 	var gmapLink = createDirectionsLink([lat, long], addy);
-	console.log(name, addy, href, phone, imgUrl, gmapLink);
-	setHtmlAttributes(name, href, addy, phone, imgUrl, gmapLink);
+	console.log(name, addy, href, phone, imgUrl, gmapLink, rating);
+	setHtmlAttributes(name, href, addy, phone, imgUrl, gmapLink, rating);
 }
 
 function getLocation() {

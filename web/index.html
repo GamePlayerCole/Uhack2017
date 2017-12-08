@@ -31,6 +31,7 @@
 					<a class="margin" id="name"></a>
 					<div class="margin" id="address"></div>
 					<div class="margin" id="phone-number"></div>
+					<div class="margin" id="rating"></div>
 					<a class="margin" id="gmaps-link"></a>
 				</div>
 			</div>
@@ -39,13 +40,20 @@
 
 	<div class="container-fluid">
 		<div class="row margin bottom-margin">
-			<div class="hub flex col-lg-6 col-lg-offset-3 text-center">
-				<h4 class="text-color margin">Max Travel Distance:</h4>
-				<input type="range" min="1" max="25" value="5" class="slider margin" id="distanceSlider">
-				<input type="text" name="maxDistance" id="distanceValue" class="textInput" value="5" maxlength="2" size="2">
-				Miles
+			<div class="text-color hub flex col-lg-6 col-lg-offset-3 text-center">
+				<div class="price-filter">
+					
+				</div>
+				<div class="distance-filter">
+					<h4>Max Travel Distance:</h4>
+					<input type="range" min="1" max="25" value="5" class="slider" id="distanceSlider">
+					<div id="slider-input">
+						<input type="text" name="maxDistance" id="distanceValue" class="textInput margin" value="5" maxlength="2" size="2">
+						<div class="margin">Miles</div>
+					</div>
+				</div>
 				<div>
-					<button class="btn btn-default buttons background margin" id="new">Gimme A Restaurant!</button>
+					<button class="btn btn-default buttons background" id="new">Gimme A Restaurant!</button>
 				</div>
 			</div>
 		</div>

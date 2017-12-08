@@ -51,7 +51,7 @@ body {
 	flex-direction: column;
 	flex-wrap: nowrap;
 	align-items: center;
-	justify-content: space-between;
+	justify-content: space-around;
 }
 
 .flex {
@@ -87,6 +87,7 @@ body {
 
 #distanceValue {
 	text-align: center;
+	margin-right: 5px;
 }
 
 .slider {
@@ -124,4 +125,18 @@ body {
 
 .bottom-margin {
 	margin-bottom: 20px;
+}
+
+#slider-input {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+.distance-filter {
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	width: 50%;
+	justify-content: space-between;
 }
