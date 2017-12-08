@@ -7,11 +7,14 @@ body {
 }
 
 .background {
-	background-color: rgb(88, 122, 163);
-	-webkit-transition:background 1s;
-    -moz-transition:background 1s;
-    -o-transition:background 1s;
-    transition:background 1s;
+	background-color: #607d8b;
+    background: -webkit-linear-gradient(#607d8b, #bdbdbd); 
+  	background: -o-linear-gradient(#607d8b, #bdbdbd);
+  	background: -moz-linear-gradient(#607d8b, #bdbdbd); 
+  	background: linear-gradient(#607d8b, #bdbdbd); 
+  	background-repeat: no-repeat;
+  	background-attachment: fixed;
+
 }
 
 .buttons:hover {
@@ -20,11 +23,7 @@ body {
 }
 
 .text-color {
-	color: rgb(88, 122, 163);
-	-webkit-transition:background 1s;
-    -moz-transition:background 1s;
-    -o-transition:background 1s;
-    transition:background 1s;
+	color: #607d8b;
 }
 
 .margin {
@@ -121,4 +120,8 @@ body {
     border-radius: 50%;
     background: #4CAF50;
     cursor: pointer;
+}
+
+.bottom-margin {
+	margin-bottom: 20px;
 }

@@ -37,7 +37,8 @@ app.get('/yelp', function(req, res) {
 		console.log(lat, long, radius, offset);
 
 		axios.get('https://api.yelp.com/v3/businesses/search?latitude=' + lat + '&longitude=' + long 
-			+ '&radius=' + radius + '&offset=' + offset + '&limit=50', { headers: { Authorization: AuthStr } })
+			+ '&radius=' + radius + '&offset=' + offset + '&limit=50' + '&categories=food', 
+			{ headers: { Authorization: AuthStr } })
 		 .then(restaurantsList => {
 		     return res.json({restaurants: restaurantsList.data.businesses});
 		  })
